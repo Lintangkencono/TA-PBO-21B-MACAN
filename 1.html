@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buku Tamu SMA 13 Bandar Lampung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #guestForm {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #guestList {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Buku Tamu SMA 13 Bandar Lampung</h1>
+
+    <div id="guestForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" placeholder="Masukkan nama">
+
+        <label for="message">Tanggal Kunjungan:</label>
+        <textarea id="message" placeholder="Masukkan Tanggal"></textarea>
+
+        <label for="message">Tujuan Kunjungan:</label>
+        <textarea id="message" placeholder="Masukkan Tujuan"></textarea>
+
+        <label for="message">Pesan:</label>
+        <textarea id="message" placeholder="Masukkan pesan"></textarea>
+
+
+        <button onclick="addGuest()">Tambahkan ke Buku Tamu</button>
+    </div>
+
+
+    <script>
+        function addGuest() {
+            var name = document.getElementById('name').value;
+            var message = document.getElementById('message').value;
+
+            if (name && message) {
+                var guestList = document.getElementById('guestUl');
+                var listItem = document.createElement('li');
+                listItem.textContent = name + ': ' + message;
+                guestList.appendChild(listItem);
+
+                // Reset form
+                document.getElementById('name').value = '';
+                document.getElementById('message').value = '';
+            } else {
+                alert('Silakan masukkan nama dan pesan Anda.');
+            }
+        }
+    </script>
+
+</body>
+</html>
